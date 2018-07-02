@@ -166,18 +166,15 @@
 
     
         <div class="content">
-            <p>#汇编语言</p>
-<p>##余枫洁</p>
-<p>#字长<br>8Bit=1Byte   2Byte=1Word  2Word=1Dword   2Dword=1Qward</p>
-<p>##1.寄存器<br>32位寄存器有16个，分别是：<br>4个数据寄存器（EAX、EBX、ECX、EDX）。<br>2个变址和指针寄存器（ESI和EDI）；2个指针寄存器（ESP和EBP）。<br>6个段寄存器（ES、CS、SS、DS、FS、GS）。<br>1个指令指针寄存器（EIP）；1个标志寄存器（EFlags）。<br>4个数据寄存器为通用寄存器，有特殊用途但用处不大。ESI、EDI、SI和DI称为变址寄存器，它们主要用于存放存储单元在段内的偏移量，用它们可实现多种存储器。EBP、ESP、BP和SP称为指针寄存器，主要用于存放堆栈内存储单元的偏移量，用它们可实现多种存储器。指令指针EIP、IP是存放下次将要执行的指令在代码段的偏移地址，标志寄存器目前只需了解ZF零标志位。</p>
-<p>###寻址方式<br>立即数寻址：MOV EAX,123H<br>寄存器寻址：MOV EAX,EBX<br>直接寻址：MOV EAX, [12345678H]<br>寄存器间接寻址：MOV EAX, [EBX]<br>乱七八糟寻址：MOV EAX,123[BX][SI]</p>
-<p>##汇编语言基本指令（需要熟练掌握的）<br>cmp a,b 比较a与b；<br>mov a,b 把b的值送给a；ret 返回主程序<br>nop 无作用,英文“no operation”的简写，意思是“do nothing”(机器码90)***机器码的含义参看上面<br>(解释:ultraedit打开编辑exe文件时你看到90,等同于汇编语句nop)；<br>call 调用子程序；<br>je 或jz 若相等则跳(机器码74 或0F84)；<br>jne或jnz 若不相等则跳(机器码75或0F85)；<br>jmp 无条件跳(机器码EB)；<br>jb 若小于则跳；<br>ja 若大于则跳；<br>jg 若大于则跳；<br>jge 若大于等于则跳；<br>jl 若小于则跳；<br>jle 若小于等于则跳；<br>pop 出栈；<br>push 压栈。</p>
+            <h1 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h1><h2 id="余枫洁"><a href="#余枫洁" class="headerlink" title="余枫洁"></a>余枫洁</h2><h1 id="字长"><a href="#字长" class="headerlink" title="字长"></a>字长</h1><p>8Bit=1Byte   2Byte=1Word  2Word=1Dword   2Dword=1Qward</p>
+<h2 id="1-寄存器"><a href="#1-寄存器" class="headerlink" title="1.寄存器"></a>1.寄存器</h2><p>32位寄存器有16个，分别是：<br>4个数据寄存器（EAX、EBX、ECX、EDX）。<br>2个变址和指针寄存器（ESI和EDI）；2个指针寄存器（ESP和EBP）。<br>6个段寄存器（ES、CS、SS、DS、FS、GS）。<br>1个指令指针寄存器（EIP）；1个标志寄存器（EFlags）。<br>4个数据寄存器为通用寄存器，有特殊用途但用处不大。ESI、EDI、SI和DI称为变址寄存器，它们主要用于存放存储单元在段内的偏移量，用它们可实现多种存储器。EBP、ESP、BP和SP称为指针寄存器，主要用于存放堆栈内存储单元的偏移量，用它们可实现多种存储器。指令指针EIP、IP是存放下次将要执行的指令在代码段的偏移地址，标志寄存器目前只需了解ZF零标志位。</p>
+<h3 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h3><p>立即数寻址：MOV EAX,123H<br>寄存器寻址：MOV EAX,EBX<br>直接寻址：MOV EAX, [12345678H]<br>寄存器间接寻址：MOV EAX, [EBX]<br>乱七八糟寻址：MOV EAX,123[BX][SI]</p>
+<h2 id="汇编语言基本指令（需要熟练掌握的）"><a href="#汇编语言基本指令（需要熟练掌握的）" class="headerlink" title="汇编语言基本指令（需要熟练掌握的）"></a>汇编语言基本指令（需要熟练掌握的）</h2><p>cmp a,b 比较a与b；<br>mov a,b 把b的值送给a；ret 返回主程序<br>nop 无作用,英文“no operation”的简写，意思是“do nothing”(机器码90)***机器码的含义参看上面<br>(解释:ultraedit打开编辑exe文件时你看到90,等同于汇编语句nop)；<br>call 调用子程序；<br>je 或jz 若相等则跳(机器码74 或0F84)；<br>jne或jnz 若不相等则跳(机器码75或0F85)；<br>jmp 无条件跳(机器码EB)；<br>jb 若小于则跳；<br>ja 若大于则跳；<br>jg 若大于则跳；<br>jge 若大于等于则跳；<br>jl 若小于则跳；<br>jle 若小于等于则跳；<br>pop 出栈；<br>push 压栈。</p>
 <p>剩下的查询此链接<br>【CSDN博客】（<a href="https://blog.csdn.net/wangbaochu/article/details/41850779）{:target=&quot;_blank&quot;}" target="_blank" rel="noopener">https://blog.csdn.net/wangbaochu/article/details/41850779）{:target=&quot;_blank&quot;}</a></p>
-<p>##在ollydbg上的两个练习</p>
-<p>###（1）<br>先找到Hellow Word.exe文件的主函数，用F7、F8或字符串检索法寻找。</p>
+<h2 id="在ollydbg上的两个练习"><a href="#在ollydbg上的两个练习" class="headerlink" title="在ollydbg上的两个练习"></a>在ollydbg上的两个练习</h2><h3 id="（1）"><a href="#（1）" class="headerlink" title="（1）"></a>（1）</h3><p>先找到Hellow Word.exe文件的主函数，用F7、F8或字符串检索法寻找。</p>
 <p><img src="https://i.imgur.com/BPO7ucb.png" alt=""><br>找到Hellow word复制其地址004092A0<br><img src="https://i.imgur.com/Tj6flWn.png" alt=""><br>在地址右键点击转到/表达式，确定就可以找到Hellow word的HEX数据进行修改来改变程序输出结果。<br>第二个任务直接右键点击汇编在图一选中项上，输入jmp与retn的地址，这样程序执行时就不会有弹窗。</p>
-<p>###（2）<br>修改fact.exe的错误，同样先找出主函数。<br><img src="https://i.imgur.com/SE4hIZz.png" alt=""><br>程序功能是数学阶乘运算，输入5发现输出为24，说明可能少乘一个5，分析可知图中这串代码是指大于等于输入值就弹出，所以讲jge(大于等于）改为ja（大于）。</p>
-<p>#####注意：ollydbg的快捷键使用与C语言知识<br><img src="https://i.imgur.com/Jvk6ouR.png" alt=""></p>
+<h3 id="（2）"><a href="#（2）" class="headerlink" title="（2）"></a>（2）</h3><p>修改fact.exe的错误，同样先找出主函数。<br><img src="https://i.imgur.com/SE4hIZz.png" alt=""><br>程序功能是数学阶乘运算，输入5发现输出为24，说明可能少乘一个5，分析可知图中这串代码是指大于等于输入值就弹出，所以讲jge(大于等于）改为ja（大于）。</p>
+<h5 id="注意：ollydbg的快捷键使用与C语言知识"><a href="#注意：ollydbg的快捷键使用与C语言知识" class="headerlink" title="注意：ollydbg的快捷键使用与C语言知识"></a>注意：ollydbg的快捷键使用与C语言知识</h5><p><img src="https://i.imgur.com/Jvk6ouR.png" alt=""></p>
 
         </div>
     
