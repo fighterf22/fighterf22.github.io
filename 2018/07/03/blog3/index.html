@@ -167,11 +167,44 @@
         
 
         <!-- Post Content -->
-        
+        <p>对于栈的初学习<br><a id="more"></a></p>
+<h1 id="小端序"><a href="#小端序" class="headerlink" title="小端序"></a>小端序</h1><p>端序指的是字节的存储顺序；小端序是把高位字节存储在高端地址，底位字节存储在低端地址，高端序与之相反。大小端序是硬件层面上的，针对不同的CPU与内存而言是不同的。</p>
+<h1 id="补充ASCII码表与2进制、16进制数"><a href="#补充ASCII码表与2进制、16进制数" class="headerlink" title="补充ASCII码表与2进制、16进制数"></a>补充ASCII码表与2进制、16进制数</h1><h2 id="ASCII码表"><a href="#ASCII码表" class="headerlink" title="ASCII码表"></a>ASCII码表</h2><p><img src="https://i.imgur.com/bZauw6p.png" alt=""></p>
+<h2 id="2进制与10进制互相转换"><a href="#2进制与10进制互相转换" class="headerlink" title="2进制与10进制互相转换"></a>2进制与10进制互相转换</h2><h3 id="10进制转2进制"><a href="#10进制转2进制" class="headerlink" title="10进制转2进制"></a>10进制转2进制</h3><p>十进制数逐次整除2，直至商为0，所得余数按照相反的顺序写出，即为其二进制数。</p>
+<p>示例：45写成二进制为101101　　</p>
+<pre><code>45逐次整除2的商        22       11       5       2       1       0
+
+逐次整除2的余数　　　1          0        1       1       0       1
+
+                              ←←←←←←←←←←←←←←←←←←
+
+                                    把余数从右往左写，即为二进制数
+</code></pre><h3 id="2进制转10进制"><a href="#2进制转10进制" class="headerlink" title="2进制转10进制"></a>2进制转10进制</h3><p>计算公式：a<em>20+b</em>21+c<em>22+d</em>23+……+n*2(n-1)=</p>
+<p>此公式中，a表示二进制数的右边第一位数，b表示二进制数的右边第二位数，以此类推。</p>
+<p>示例：101101写成十进制为45</p>
+<pre><code>1*20+0*21+1*22+1*23+0*24+1*25=45
+</code></pre><h3 id="10进制转16进制"><a href="#10进制转16进制" class="headerlink" title="10进制转16进制"></a>10进制转16进制</h3><p>十进制数依次除以16直至得0，所得余数按照相反的顺序写出，即为其16进制数。</p>
+<h3 id="16进制转10进制"><a href="#16进制转10进制" class="headerlink" title="16进制转10进制"></a>16进制转10进制</h3><p>计算公式：a<em>160+b</em>161+c<em>162+d</em>163+……+n*16(n-1)=<br>此公式中，a表示二进制数的右边第一位数，b表示二进制数的右边第二位数，以此类推。</p>
+<h3 id="16进制与2进制互相转换"><a href="#16进制与2进制互相转换" class="headerlink" title="16进制与2进制互相转换"></a>16进制与2进制互相转换</h3><p>示例：        二进制数      1001  0111 0111 1001</p>
+<pre><code>转十六进制数         9        7      7       9
+</code></pre><p>从二进制数右边起每四个数字所代表的十进制中的数字为十六进制数的一个数字，即二进制数1001 0111 0111 1001写成十六进制数为9779。2进制转16进制过程相反。</p>
+<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><p><img src="https://i.imgur.com/JHZf0qg.png" alt=""><br>特性：栈先进后出，从高地址像低地址延伸。<br>数据从上面往下面存，从下面往上面拿。<br>栈的作用：暂时保存变量，调用函数时传递参数，保存函数返回地址。</p>
+<h1 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h1><h3 id="描述此C代码的栈运行"><a href="#描述此C代码的栈运行" class="headerlink" title="描述此C代码的栈运行"></a>描述此C代码的栈运行</h3><p>‘’’</p>
+<p> #include&lt;stdio.h&gt;<br>void swap(int <em> aa, int </em> bb)<br>{<br>    int cc = <em>aa;
+    </em>aa = <em>bb;
+    </em>bb = cc;<br>}<br>int main()<br>{<br>    int a = 1, b = 0;<br>    swap(&amp;a, &amp;b);<br>    printf(“%d %d”, a, b);<br>}<br>‘’’</p>
+<p><img src="https://i.imgur.com/ApfDszV.jpg" alt=""></p>
+<h3 id="描述部分汇编语言"><a href="#描述部分汇编语言" class="headerlink" title="描述部分汇编语言"></a>描述部分汇编语言</h3><p>012616FE  mov         eax,dword ptr [aa] 把aa的地址移入eax<br>01261701  mov         ecx,dword ptr [eax] 把eax中的数值移入ecx<br>012616E9  push        ebx                把ebx压入栈<br>012616E3  sub         esp,0CCh           在esp中留出0CCh的空间<br>012616EC  lea         edi,[ebp-0CCh]     将[edp-0CCh]中的地址移到edi<br>012616FC  rep stos    dword ptr es:[edi] 将上一串指令重复并将上一出寄存器中的数值拷到es:[edi]指<br>　　　　　　　　　　　　　　　　　　　　　　　向的地址</p>
+
     </div>
 
     
 
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pwn（栈）/">#pwn（栈）</a>
+        </div>
     
 
     <!-- Comments -->
