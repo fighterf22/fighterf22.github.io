@@ -168,27 +168,27 @@
 
         <!-- Post Content -->
         <a id="more"></a>
-<p>#Linux与windows的不同<br>linux严格区分大小写 ，linux中所有内容以文件形式保存，包括硬件一切内容皆文件。linux不靠扩展名区分文件类型靠权限来区分。Windows下的程序不能直接在linux中安装和运行。</p>
-<p>#Linux分区设备名与挂载</p>
-<ol>
+<h1 id="Linux与windows的不同"><a href="#Linux与windows的不同" class="headerlink" title="Linux与windows的不同"></a>Linux与windows的不同</h1><p>linux严格区分大小写 ，linux中所有内容以文件形式保存，包括硬件一切内容皆文件。linux不靠扩展名区分文件类型靠权限来区分。Windows下的程序不能直接在linux中安装和运行。</p>
+<h1 id="Linux分区设备名与挂载"><a href="#Linux分区设备名与挂载" class="headerlink" title="Linux分区设备名与挂载"></a>Linux分区设备名与挂载</h1><ol>
 <li>Windows与Linux不同的磁盘分区流程<br> Windows：分区–&gt;格式化–&gt;分配盘符<br> Linux：分区–&gt;格式化–&gt;给每个分区起“设备文件名”–&gt;分配挂载点</li>
 <li>设备文件名：Linux中一切皆文件，包括硬件、用户等。硬件的文件名即称作“硬件设备文件名”，硬件设备文件名作为硬件的标准称呼，是由Linux自动检测并分配的。硬件设备文件在目录中处于根目录（“/”代表根目录，最高级目录）下的dev文件夹（专用于放硬件设备文件）下，即“/dev”文件夹下。<br>分区的设备文件名分配规则：<br> hd代表IDE接口，sd代表SCSI接口或SATA接口；<br> a代表第一块硬盘，如有多块硬盘b代表第二块硬盘，c代表第三块硬盘，以此类推；<br> 1代表一块硬盘上的第一个分区，2代表此硬盘的第二个分区，3代表此硬盘第三个分区，以此类推，其中1234编号只能代表主分区或扩展分区，逻辑分区的编号从5开始分配，最大分区编号16<br>/dev/sda1 第一块SATA接口硬盘的第一个分区</li>
 <li>挂载点：参考Windows中的盘符的概念来理解。Windows中使用字母标识符来指定在这个分区上的文件和目录，而Linux中使用目录作为挂载点（盘符）<br>绝大多数目录都可以作为挂载点（部分必须和根目录放在同一个分区的目录除外，否则将导致系统不能启动）包括你手工创建的目录。<br> 必须分区：<pre><code>根分区 /（挂载点根目录，根目录中要保存其他所有数据，根目录如果没有硬盘空间，根下的很多数据将没有地方存放）
 swap分区（交换分区，可理解为虚拟内存， 当真实内存不足时，可将swap分区中的硬盘空间作为内存使用，如果内存小于等于4GB，推荐swap分配内存的两倍，若内存大于4GB，建议swap空间与内存相等，不需要挂载点）
 </code></pre> 推荐分区：<pre><code>启动分区，推荐200MB （挂载点/boot目录，/boot中存放了用于系统启动的相关数据，如果不单独分区，将会和根分区存放在同一个存储空间中，如果根分区写满将导致系统无法启动）
-</code></pre>#Linux命令格式<br>1、 起始符：<br>[root@localhost ~]#<br>root 当前登录用户<br>localhost 主机名<br>~ 当前所在目录（家目录）<br>‘#’ 超级用户的提示符</li>
+</code></pre><h1 id="Linux命令格式"><a href="#Linux命令格式" class="headerlink" title="Linux命令格式"></a>Linux命令格式</h1>1、 起始符：<br>[root@localhost ~]#<br>root 当前登录用户<br>localhost 主机名<br>~ 当前所在目录（家目录）<br>‘#’ 超级用户的提示符</li>
 </ol>
 <p>2、 ls命令选项：<br>ls -a 显示所有文件，包括隐藏文件<br>ls -l 显示详细信息<br>ls -d 查看目录属性<br>ls -h 人性化显示文件大小<br>ls -i 显示inode</p>
 <p>3、 文件权限（10位），第一位为文件类型，后面每3位一组<br>-rw-r–r–<br>-文件类型（-文件 d目录 l软链接目录）<br>rw- u所有者<br>r– g所属组<br>r– o其他人<br>r读 w写 x执行</p>
 <p>-rw-r–r–. 1 root root 1207<br>.代表ACL权限 1应用计数<br>在linux中“.”开头的文件是隐藏文件。</p>
 <p>4、 # 超级用户的提示符 ￥普通用户的提示符 ~ 代表当前目录</p>
-<p>#Linux目录处理命令<br>1、linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件。</p>
+<h1 id="Linux目录处理命令上"><a href="#Linux目录处理命令上" class="headerlink" title="Linux目录处理命令上"></a>Linux目录处理命令上</h1><p>1、linux中一切皆文件。目录为目录文件。普通文件用来保存数据，目录文件用来保存文件。</p>
 <p>2、mkdir ：建立目录（make directories）<br>  2-1）mkdir -p [目录名]<br>    2-1-1）-p ：递归创建，当创建多级目录时需加<br>  2-2)例：<br>    2-2-1）mkdir light<br>    2-2-2) mkdir -p imooc/linux/light</p>
 <p>3、cd [目录] ：切换目录（change directory）<br>  3-1）简化操作<br>    3-1-1）cd ~/ cd  ：进入当前用户的家目录<br>    3-1-2）cd - ：进入上次目录<br>    3-1-3）cd .. ：进入上一级目录<br>    3-1-4）cd . ：进入当前目录</p>
+<h2 id="Linux目录处理命令下"><a href="#Linux目录处理命令下" class="headerlink" title="Linux目录处理命令下"></a>Linux目录处理命令下</h2><pre><code>1、删除空目录
+</code></pre><p>  1-1）rmdir [目录名] （remove empty directories）<br>    1-1-1）只能删除空目录<br>2、删除文件或目录<br>  2-1）rm -rf [文件或目录] （remove）<br>    2-1-1）选项 -r ：删除目录<br>    2-1-2）选项 -f ：强制<br>    2-1-3）rm [文件名] ：提示是否删除<br>    2-1-4）rm -r [目录] ：删除目录需加 -r ，目录中含有子文件，将持续询问是否删除<br>    2-1-5）rm -rf [目录] ：删除目录， 不会询问是否删除而直接进行<br>    2-1-6）纯字符界面没有回收站。注意自杀指令：rm -rf /<br>  2-2）rm -rf /tmp/* ：删除tmp目录下的内容<br>  2-3）rm -rf /tmp/  ：删除tmp目录<br>3、建议：删除文件或目录习惯使用命令 rm -rf [文件或目录]<br>4、复制命令<br>  4-1）cp [选项] [原文件或目录] [目标目录] （copy）<br>    4-1-1）选项 -r ：复制目录<br>    4-1-2）选项 -p ：连带文件属性复制<br>    4-1-3）选项 -d ：若原文件是链接文件，则复制链接属性<br>    4-1-4）选项 -a ：相当于 -pdr 全选<br>  4-2）例子<br>    4-2-1）cp abc /tmp/ 若目标目录不加文件名，则为原名复制<br>    4-2-2）cp abc /tmp/ana 若目标目录后加入文件名，则为改名复制<br>    4-2-3）cp -r japan/ /tmp/ 复制目录<br>    4-2-4）cp -a japan/ /tmp/ 完全复制，包括所有属性<br>  4-3）被复制文件的时间为执行复制命令的时间，若要使被复制的文件与原文件属性完全一致，需加 -a<br>5、剪切或改名命令<br>  5-1）mv [原文件或目录] [目标目录] （move）<br>    5-1-1）mv japan/ /tmp/ 剪切目录时不需加 -r<br>    5-1-2）mv abc longls 当原文件与目标目录，在同一目录下，则为改名命令<br>6、当前系统时间命令：date<br>7、ls -l 命令别名 ：ll</p>
 <p>4、路径<br>  4-1）相对路径：参照当前所在目录，进行查找<br>  4-2）绝对路径：从根目录开始制定，一级一级递归，进行查找</p>
 <p>5、pwd ：查询所在目录位置（print working directory）</p>
-<p>#Linux常用命令</p>
-<p>##Linux文件搜索命令locate<br>1、locate 文件名<br>  1-1）在后台数据库中按文件名搜索，搜索速度更快<br>  1-2）对于新建的文件，由于数据库没有更新，使用locate 不能查到。可以使用 updatedb强制更新数据库后即可查到。<br>  1-3）可使用 locate locate 搜索locate相关文件，可看到locate数据库。<br>  1-4）在不同linux中，该数据库名字稍微不同，例如，locatedb、slocate、mlocate。</p>
+<h1 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h1><h2 id="Linux文件搜索命令locate"><a href="#Linux文件搜索命令locate" class="headerlink" title="Linux文件搜索命令locate"></a>Linux文件搜索命令locate</h2><p>1、locate 文件名<br>  1-1）在后台数据库中按文件名搜索，搜索速度更快<br>  1-2）对于新建的文件，由于数据库没有更新，使用locate 不能查到。可以使用 updatedb强制更新数据库后即可查到。<br>  1-3）可使用 locate locate 搜索locate相关文件，可看到locate数据库。<br>  1-4）在不同linux中，该数据库名字稍微不同，例如，locatedb、slocate、mlocate。</p>
 <p>2、/var/lib/mlocate (保存的搜索数据库)<br>  2-1）#locate 命令所搜索的后台数据库<br>  2-2）数据库不是实时的，更新频率大概一天更新一次</p>
 <p>3、updatedb<br>  3-1）更新数据库</p>
 <p>4、缺点：只能按照文件名进行搜索，但常用。</p>
@@ -200,19 +200,19 @@ swap分区（交换分区，可理解为虚拟内存， 当真实内存不足时
   #搜索时，不搜索的文件类型
 5-2-4）PRUNEPATHS =
   #搜索时，不搜索的路径
-</code></pre><p>##Linux命令搜索命令<br>文件搜索命令：whereis (只能搜索系统命令，不能搜索自己凭空创建的普通文件)<br>whoami显示当前操作用户  //who am i 显示登录用户<br>whatis ls ls的作用<br>   选项：<br>     -b:只查找可执行文件<br>     -m:只查找帮助文件</p>
+</code></pre><h2 id="Linux命令搜索命令"><a href="#Linux命令搜索命令" class="headerlink" title="Linux命令搜索命令"></a>Linux命令搜索命令</h2><p>文件搜索命令：whereis (只能搜索系统命令，不能搜索自己凭空创建的普通文件)<br>whoami显示当前操作用户  //who am i 显示登录用户<br>whatis ls ls的作用<br>   选项：<br>     -b:只查找可执行文件<br>     -m:只查找帮助文件</p>
 <p>   文件搜索命令：which（不仅能看到命令的路径，如果有别名，还能看到别名）<br>ls =‘ls –color=auto’（ls显示颜色，设置为自动）<br>   whereis和which不能看到shell的默认命令（如：cd），只能看到外部安装的命令。</p>
 <p>   echo $PATH说明：不光是Linux专有的，Windous重也有，类似于Windows中的环境变量，执行命令的时候都要在path定义的目录中去寻找。<br>所以像ls这样的命令就可以不用加路径（/bin/ls）执行了。<br>如果自己写的脚本 在运行时不想要具体的目录 需要在path设置目录</p>
-<p>##find命令搜索<br>find搜索（避免大范围的搜索，会非常浪费系统资源，建议不在直接在“/”目录下搜索）<br>格式：find 【搜索范围】【搜索条件】；<br>例：find /home -name 文件名；<br>注意：find搜索默认是完全匹配。</p>
+<h2 id="find命令搜索"><a href="#find命令搜索" class="headerlink" title="find命令搜索"></a>find命令搜索</h2><p>find搜索（避免大范围的搜索，会非常浪费系统资源，建议不在直接在“/”目录下搜索）<br>格式：find 【搜索范围】【搜索条件】；<br>例：find /home -name 文件名；<br>注意：find搜索默认是完全匹配。</p>
 <p>如果需要进行模糊查询，需要添加通配符，通配符有以下3种<br>“<em>”匹配任意字符，例：find /home -name “</em>test<em>”,显示所有名字带test的文件；或例：find /home -name “</em>”，home目录下的所有文件，包括隐藏文件。<br>“?”匹配任意一个字符，<br>“【】”匹配任意一个中括号内的字符，例：find /home -name “test【12】”，显示test1和test2文件；或find /home -name “【12】<em>”，显示以1和2开头的文件。<br>组合使用：例：find /home -name “</em>【12】”，显示所有1和2结尾的文件</p>
 <p>find 按文件时间来搜索</p>
 <p>find /home -mtime +10 在home目录下，查找10天前修改的文件<br>find /home -mtime 10 在home目录下，查找10天前当天修改的文件<br>find /home -mtime -10 在home目录下，查找10天内修改的文件<br>atime 文件访问时间<br>ctime 改变文件属性<br>mtime 修改文件内容</p>
 <p>find搜索<br>find /root -iname test 不区分要搜索的test大小写格式<br>find /root -user root 搜索root目录下的所有属于root用户的文件<br>find /root -nouser 没有所属者的文件，liunx中，每个文件都有所属者，如果没有，那么一般都是垃圾文件，但还是有特例的，比如内核产生的文件，就没有所属者，一般在proc和sys目录下；还有外来文件，也就是U盘拷入的文件也会忽略所有者。</p>
 <p>find 目录 -size 文件大小<br>注意：文件大小用小写k和大写M。<br>-a 表示and<br>-o 表示or<br>find /etc -size +20k -a -size -50k -exec ls -lh {} \;<br>-exec {} \; 固定格式，表示直接对前面的搜索结果进行后面的命令处理</p>
-<p>##greap命令<br>grep [选项] 字符串 文件名 （字符串使用 “” 包围，结果为行记录）<br>-i 忽略大小写<br>-v 排除指定字符串</p>
+<h2 id="greap命令"><a href="#greap命令" class="headerlink" title="greap命令"></a>greap命令</h2><p>grep [选项] 字符串 文件名 （字符串使用 “” 包围，结果为行记录）<br>-i 忽略大小写<br>-v 排除指定字符串</p>
 <p>find 命令与 grep 命令的区别</p>
 <p>find：在 系统 中搜索符合条件的 文件名，使用 通配符（完全）匹配<br>grep：在 文件 当中搜索符合条件的 字符串，使用 正则表达式 （包含）匹配</p>
-<p>##Linux帮助命令<br>1.man + 命令名称—–最常用的帮助命令,例如 man ls<br>进入man命令里操作，q退出 ，输入：/ -d 搜索”-d”字符串，按n往下搜“-d”,shift+n 往上搜“-d”</p>
+<h2 id="Linux帮助命令"><a href="#Linux帮助命令" class="headerlink" title="Linux帮助命令"></a>Linux帮助命令</h2><p>1.man + 命令名称—–最常用的帮助命令,例如 man ls<br>进入man命令里操作，q退出 ，输入：/ -d 搜索”-d”字符串，按n往下搜“-d”,shift+n 往上搜“-d”</p>
 <p>man的级别：<br>man man, man ls,man -f password,man 1 password,whereis password,man -f null,man -f ifconfig</p>
 <p>1、查看命令的帮助<br>2、查看可被内核调用的函数的帮助<br>3、查看函数和函数库的帮助<br>4、查看特殊文件的帮助（主要是/dev目录下的文件）<br>5、查看配置文件的帮助<br>6、查看游戏的帮助<br>7、查看其它杂项的帮助<br>8、查看系统管理员可用命令的帮助<br>9、查看和内核相关文件的帮助</p>
 <p>man -f 命令 相当于 whatis 命令<br>man -k 命令 相当于 apropos 命令 搜索含有关键词“命令”的帮助文档</p>
@@ -224,7 +224,7 @@ swap分区（交换分区，可理解为虚拟内存， 当真实内存不足时
 <p>2.help shell内部命令<br>例如:whereis可以用来判断一个命令是否是shell内部命令,ls在/bin/下面有可执行文件<br>说明ls命令不是shell内部命令，cd命令在/bin/下面没有相应的可执行文件，所以是shell<br>自带的命令.</p>
 <p>3.info 命令</p>
 <p>info里面内容十分繁琐，是关于命令的一个巨大的帮助文档，里面有各个版本对于此命令<br>的说明。<br>-回车：进入带*号的说明<br>-u: 进入上层页面<br>-n: 进入下一个帮助小节<br>-p: 进入上一个帮助小节<br>-q: 退出</p>
-<p>##Linux压缩与解压命令<br>常用压缩格式：.zip .gz .bz2<br>常用压缩格式：.tar.gz .tar.bz2</p>
+<h2 id="Linux压缩与解压命令"><a href="#Linux压缩与解压命令" class="headerlink" title="Linux压缩与解压命令"></a>Linux压缩与解压命令</h2><p>常用压缩格式：.zip .gz .bz2<br>常用压缩格式：.tar.gz .tar.bz2</p>
 <p>.zip压缩<br>zip 压缩文件名 源文件 //压缩文件<br>zip -r 压缩目录名 源目录 //压缩目录<br>.zip格式解压缩<br>unzip 压缩文件 //解压缩文件 </p>
 <p>.gz格式压缩<br>gzip 源文件 //压缩为.gz格式的压缩文件，源文件会消失<br>gzip -c 源文件 &gt; 压缩文件 //压缩为.gz格式，源文件保留<br>gzip -r 目录 //压缩目录下所有子文件，但是不能压缩目录<br>.gz解压缩<br>gzip -d 压缩文件 //解压缩文件<br>gunzip 压缩文件 //解压缩文件 </p>
 <p>bzip压缩<br>bzip2 源文件名 //压缩文件，源文件会消失<br>bzip2 -k 源文件 //压缩后保留源文件<br>*bzip不能压缩目录<br>bzip解压缩<br>bzip -d 压缩文件 //解压bzip2文件<br>bunbzip 压缩文件 //压缩文件</p>
@@ -238,30 +238,30 @@ swap分区（交换分区，可理解为虚拟内存， 当真实内存不足时
 <p>tar -jcvf 压缩包名.tar.bz2 源文件<br>选项：<br>-j：压缩为.tar.bz2<br>tar -jxvf 压缩包名.tar.bz2<br>选项：-x：加压缩.tar.bz2格式</p>
 <p>tar -jxvf jp.tar.bz2 -C /tmp/<br>解压缩到指定目录，只能放在后面</p>
 <p>tar -ztvf test.tar.gz<br>不解压，查看压缩包的内容</p>
-<p>##Linux重启与关机命令<br>shutdown [选项] 时间<br>-h 关机 -r 重启 -c 取消全一个关机命令 shutdown -r now #立马重启<br>halt poweroff inti 0 也都可以关机 但不安全<br>reboot init 6 也可以重启<br>runlevel查看运行级别 前级别 当前级别<br>logout退出当前用户，也就是注销<br>shutdown命令:<br>【shutdown -h 05:30】 设定凌晨05:30关机<br>【shutdown -h now】 立即关机<br>【shutdown -r 05:30】 设定凌晨05:30重启<br>【shutdown -r now】 立即重启<br>【shutdown -c】 取消前一个关机或重启命令<br>注：<br>1、以上定时关机或重启命令执行后，计算机就会卡在那里，当前用户和其他登录的用户都将无法操作，直到关机或重启。这个时候，如果当前用户按【ctrl+c】可以取消本次关机或重启的操作，而其他用户如果按【ctrl+c】的话，则不会取消关机或重启操作，但可以退出中断，继续进行其他操作。<br>2、如果想要关机命令后台运行的话，可以在命令后面输入&amp;，例如：【shutdown -h 05:30 &amp;】，这样当前用户和其他登录用户的前台就不会中断了（若中断的话，按一下回车即可）；<br>3、任何时候，不管哪个用户输入【shutdown -c】命令都可以取消关机或重启操作。<br>4、后面的时间可以使用【+m】格式，表示多少分钟后执行。也可以使用【hh:mm】格式，表示指定的时间执行，该时间是24小时制的；<br>5、若远程登录的话，最后不要执行关机命令，因为开机需要到机房开机才行。重启也尽量少执行，若必须运行，则应关闭正在运行的服务</p>
-<p>##Linux挂载命令<br><img src="https://i.imgur.com/GEuYtUU.jpg" alt=""><br>挂载命令(可理解为分配盘符)<br>（1）查询与自动挂载<br>mount 查询系统中已挂载的设备<br>mount -a 依据配置文件/etc/fstab的内容，自动挂载<br>（2）挂载命令的格式<br>mount [-t 文件系统] [-o特殊选项] 设备 文件名 挂载点<br>选项：<br>-t 文件系统：加入文件系统类型来指定挂载的类型，ext3,ext4,iso9660等文件系统<br>-o 特殊选项：可以指定挂载的额外选项<br>例：mount -o remount,noexec /home/<br>重新挂载/home分区，使用noexec权限</p>
+<h2 id="Linux重启与关机命令"><a href="#Linux重启与关机命令" class="headerlink" title="Linux重启与关机命令"></a>Linux重启与关机命令</h2><p>shutdown [选项] 时间<br>-h 关机 -r 重启 -c 取消全一个关机命令 shutdown -r now #立马重启<br>halt poweroff inti 0 也都可以关机 但不安全<br>reboot init 6 也可以重启<br>runlevel查看运行级别 前级别 当前级别<br>logout退出当前用户，也就是注销<br>shutdown命令:<br>【shutdown -h 05:30】 设定凌晨05:30关机<br>【shutdown -h now】 立即关机<br>【shutdown -r 05:30】 设定凌晨05:30重启<br>【shutdown -r now】 立即重启<br>【shutdown -c】 取消前一个关机或重启命令<br>注：<br>1、以上定时关机或重启命令执行后，计算机就会卡在那里，当前用户和其他登录的用户都将无法操作，直到关机或重启。这个时候，如果当前用户按【ctrl+c】可以取消本次关机或重启的操作，而其他用户如果按【ctrl+c】的话，则不会取消关机或重启操作，但可以退出中断，继续进行其他操作。<br>2、如果想要关机命令后台运行的话，可以在命令后面输入&amp;，例如：【shutdown -h 05:30 &amp;】，这样当前用户和其他登录用户的前台就不会中断了（若中断的话，按一下回车即可）；<br>3、任何时候，不管哪个用户输入【shutdown -c】命令都可以取消关机或重启操作。<br>4、后面的时间可以使用【+m】格式，表示多少分钟后执行。也可以使用【hh:mm】格式，表示指定的时间执行，该时间是24小时制的；<br>5、若远程登录的话，最后不要执行关机命令，因为开机需要到机房开机才行。重启也尽量少执行，若必须运行，则应关闭正在运行的服务</p>
+<h2 id="Linux挂载命令"><a href="#Linux挂载命令" class="headerlink" title="Linux挂载命令"></a>Linux挂载命令</h2><p><img src="https://i.imgur.com/GEuYtUU.jpg" alt=""><br>挂载命令(可理解为分配盘符)<br>（1）查询与自动挂载<br>mount 查询系统中已挂载的设备<br>mount -a 依据配置文件/etc/fstab的内容，自动挂载<br>（2）挂载命令的格式<br>mount [-t 文件系统] [-o特殊选项] 设备 文件名 挂载点<br>选项：<br>-t 文件系统：加入文件系统类型来指定挂载的类型，ext3,ext4,iso9660等文件系统<br>-o 特殊选项：可以指定挂载的额外选项<br>例：mount -o remount,noexec /home/<br>重新挂载/home分区，使用noexec权限</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd /home</span><br><span class="line">vi hello.sh</span><br><span class="line">#########################</span><br><span class="line"> #!/bin/bash .sh脚本文件开头</span><br><span class="line">echo &quot;Hello world!&quot;</span><br><span class="line">#########################</span><br><span class="line">chmod 755 hello.sh 赋予执行权限</span><br><span class="line">./hello.sh</span><br><span class="line">mount -o remount,exec /home/</span><br></pre></td></tr></table></figure>
 <p>(3)挂载光盘<br>mkdir /mnt/cdrom/ #建立挂载点,空目录都可以<br>mount -t iso9660 /dev/sr0 /mnt/cdrom/<br>或mount /dev/sr0 /mnt/cdrom/ #挂载光盘<br>(4)卸载光盘<br>umount 设备文件名或挂载点<br>umount /mnt/cdrom/或umount /dev/sr0<br>(5)挂载优盘<br>fdisk -l<br>查看设备文件名<br>mount -t vfat /dev/sdb1 /mnt/usb/<br>vfat指的是fat32文件系统<br>Linux默认不支持NTFS文件系统的</p>
-<p>##Linux用户查看命令<br>w 查看用户信息 （有系统资源）<br>load average: x.xx x.xx x.xx 表示系统在1分钟内 5分钟内 15分钟内的平均负载（CPU 内存）<br>tty：终端 tty1本机终端 pts/0第一个远程终端 IDLE：用户闲置时间 WHAT:用户正在执行命令<br>who 查看用户信息（简化）<br>last 查询当前登陆和过去登陆用户信息 （可以看到reboot时间）实际是查看/var/log/wtmp 但必须用last命令才能看<br>lastlog 查看所有用户最后一次登陆时间 /var/log/lastlog 不能直接看 也是用lastlog看</p>
-<p>##Linux脚本命令<br>1、echo输出命令和脚本执行</p>
+<h2 id="Linux用户查看命令"><a href="#Linux用户查看命令" class="headerlink" title="Linux用户查看命令"></a>Linux用户查看命令</h2><p>w 查看用户信息 （有系统资源）<br>load average: x.xx x.xx x.xx 表示系统在1分钟内 5分钟内 15分钟内的平均负载（CPU 内存）<br>tty：终端 tty1本机终端 pts/0第一个远程终端 IDLE：用户闲置时间 WHAT:用户正在执行命令<br>who 查看用户信息（简化）<br>last 查询当前登陆和过去登陆用户信息 （可以看到reboot时间）实际是查看/var/log/wtmp 但必须用last命令才能看<br>lastlog 查看所有用户最后一次登陆时间 /var/log/lastlog 不能直接看 也是用lastlog看</p>
+<h2 id="Linux脚本命令"><a href="#Linux脚本命令" class="headerlink" title="Linux脚本命令"></a>Linux脚本命令</h2><p>1、echo输出命令和脚本执行</p>
 <p>格式：echo [选项] [输出内容]<br>选项： -e：支持反斜线控制的字符转换<br>echo “bols he cangls ni xihuan nayige”<br>\a - 输出警告音<br>\b - 退格符<br>\n - 换行符<br>\r - 回车键<br>\t - 制表符，也就是tab键<br>\v - 垂直制表符<br>\0nnn - 按照八进制ASCII码输出字符<br>\xhh - 按照十六进制ASCII表输出字符<br>echo -e “bols he cangls ni\b xihuan nayige”<br>echo -e “hell\bo”<br>echo -e “h\te\tl\nl\to\t”<br>echo -e “\x68\t\x65\t\x6c\n\x6c\t\x6f”<br>echo -e “\e[1;31m嫁人就要嫁凤姐\e[0m”<br>输出颜色 \e[1;##m - 开启颜色显示； \e[0m - 关闭颜色显示<br>30m=黑色，31m=红色，32m=绿色，33m=黄色<br>34m=蓝色，35m=洋红，36m=青色，37m=白色</p>
 <p>2、脚本执行：<br>方法1：赋予执行权限，直接运行<br>chmod 755 hello.sh<br>./hello.sh（或者绝对路径执行 /root/hello.sh）<br>方法2：通过Bash调用执行脚本<br>bash hello.sh</p>
 <p> #！/bin/Bash<br>不是注释，它标称下面的内容是linux的标准脚本程序<br>如果该脚本使用纯shell语句完成，不加#！/bin/Bash，运行没问题<br>但，脚本调用了其他语言，就会报错</p>
-<p>##Linux别名与快捷方式<br>alias–查看系统当中默认已经生效的别名<br>alias ls = ‘ls –color=never’–设定别名（临时生效,重启或重登录后失效）<br>vi ~/.bashrc（不止一个环境变量文件） –写入环境变量配置文件（用来更新用户环境变量~代表用户家目录）<br>vi /root/.bashrc –增加alias ls = ‘ls –color=never’（系统再次重启后永久生效）<br>source .bashrc–使当前环境变量设置生效（不需要系统再次重启后永久生效）<br>unalias ls – 删除别名</p>
+<h2 id="Linux别名与快捷方式"><a href="#Linux别名与快捷方式" class="headerlink" title="Linux别名与快捷方式"></a>Linux别名与快捷方式</h2><p>alias–查看系统当中默认已经生效的别名<br>alias ls = ‘ls –color=never’–设定别名（临时生效,重启或重登录后失效）<br>vi ~/.bashrc（不止一个环境变量文件） –写入环境变量配置文件（用来更新用户环境变量~代表用户家目录）<br>vi /root/.bashrc –增加alias ls = ‘ls –color=never’（系统再次重启后永久生效）<br>source .bashrc–使当前环境变量设置生效（不需要系统再次重启后永久生效）<br>unalias ls – 删除别名</p>
 <p><strong><strong>命令生效顺序</strong></strong><br>第一顺位执行绝对路径或者相对路径的命令<br>第二顺位执行别名<br>第三顺位执行Bash的内部命令<br>第四顺位执行按照$PATH环境变量设置定义的目录顺序的第一个命令</p>
 <p><strong><strong>快捷键</strong></strong><br>ctrl + c 强制终止<br>ctrl + l 清屏相当于clear<br>ctrl + a 光标快速回到行首<br>ctrl + e 光标快速去到行尾<br>ctrl + u 从光标所在位置删除到行首<br>ctrl + z 把命令放入后台–这个命令很谨慎使用<br>ctrl + r 历史命令搜索</p>
-<p>##Linux历史命令<br>history 历史命令<br>history [选项] [历史命令保存文件]<br>-c 清空历史命令<br>-w 把缓存中的历史命令写入历史命令保存文件 ~/.bash_history</p>
+<h2 id="Linux历史命令"><a href="#Linux历史命令" class="headerlink" title="Linux历史命令"></a>Linux历史命令</h2><p>history 历史命令<br>history [选项] [历史命令保存文件]<br>-c 清空历史命令<br>-w 把缓存中的历史命令写入历史命令保存文件 ~/.bash_history</p>
 <p>#默认保存1000条<br>HISTSIZE=1000</p>
 <p>#vi /etc/profile 环境变量配置文件</p>
 <p>基本调用<br>上下箭头来重复调用<br>!n 来执行第n条历史命令<br>!! 重复执行上一条命令<br>!字符串 重复执行后一个该串开头的命令</p>
 <p>Tab键<br>进行命令(环境变量)和目录补全(操作路径)</p>
-<p>##Linux输出重定向<br>标准输入设备：键盘/dev/stdin 描述0 标准输出：显示器/dev/stdout 描述1 标准错误输出：显示器/dev/stderr 描述2</p>
+<h2 id="Linux输出重定向"><a href="#Linux输出重定向" class="headerlink" title="Linux输出重定向"></a>Linux输出重定向</h2><p>标准输入设备：键盘/dev/stdin 描述0 标准输出：显示器/dev/stdout 描述1 标准错误输出：显示器/dev/stderr 描述2</p>
 <p>输出重定向<br>命令 &gt; 文件 “覆盖方式把命令的正确输出 输出到指定文件或设备中”<br>命令 &gt;&gt; 文件 “追加方式把命令的正确输出 输出到指定文件或设备中”<br>命令 2&gt;（2&gt;&gt;）文件 “覆盖（追加）方式把命令的错误输出 输出到指定文件或设备中”注意带2的错误输出后面不能有空格<br>命令 &gt;&gt; 文件 2&gt;&amp;1 命令 &amp;&gt;&gt; 文件 把命令的正确或错误续写到文件或设备中<br>命令 &gt;&gt; 文件1 2&gt;&gt; 文件2 把命令正确输出 输出到指定文件或设备<br>命令 &amp;&gt; /dev/null 将命令的结果丢入null（作用类似于垃圾箱）中 只执行，不显示</p>
 <p>输入重定向(用的少，了解即可)<br>wc 执行后 输入 ctrl+d结束 会统计输入行数 单词数 字母数<br>wc [选项] [文件名] -c字节数 -l行数 -w单词数<br>wc &lt; 文件名 用文件的内容作为输入 wc &lt;&lt; 标记 统计标记到标记再次出现之间的字符</p>
-<p>##Linux管道符<br>“;”连接命令 顺序执行<br>“&amp;&amp;”连接命令 逻辑与执行 第一条执行 第二条执行 第一条错误 第二条不执行<br>“||”连接命令 逻辑或执行 第一条执行 第二条不执行 第一条错误 第二条执行<br>脚本中的应用：命令 &amp;&amp; echo yes || echo no 命令正确yes 错误no<br>注意&amp;&amp; echo yes || echo no 顺序不能颠倒，不然命令出错的时候会同时输出no yes</p>
+<h2 id="Linux管道符"><a href="#Linux管道符" class="headerlink" title="Linux管道符"></a>Linux管道符</h2><p>“;”连接命令 顺序执行<br>“&amp;&amp;”连接命令 逻辑与执行 第一条执行 第二条执行 第一条错误 第二条不执行<br>“||”连接命令 逻辑或执行 第一条执行 第二条不执行 第一条错误 第二条执行<br>脚本中的应用：命令 &amp;&amp; echo yes || echo no 命令正确yes 错误no<br>注意&amp;&amp; echo yes || echo no 顺序不能颠倒，不然命令出错的时候会同时输出no yes</p>
 <p>more [文件名] “分页显示文件内容”</p>
 <p>“|” 管道符 命令1|命令2 命令1正确的结果 作为命令2的操作对象<br>例如 ls -l &gt; /etc/ | more “用于分页显示命令执行结果”<br>     netstat -an | grep ESTABLISHED | wc -l “用于查看当前连接本机的客户端 并 统计客户端数量”</p>
-<p>###通配符<br>通配符（文件名或者目录名）<br>1.?  匹配任意一个字符<br>2.*  匹配0个或任意多个字符<br>3.[] 匹配括号中任意一个字符<br>4.[-]匹配括号中任意一个字符,-代表一个范围<br>5.[^]匹配不是括号中任意一个字符</p>
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><p>通配符（文件名或者目录名）<br>1.?  匹配任意一个字符<br>2.*  匹配0个或任意多个字符<br>3.[] 匹配括号中任意一个字符<br>4.[-]匹配括号中任意一个字符,-代表一个范围<br>5.[^]匹配不是括号中任意一个字符</p>
 <p>Bash中其他特殊符号<br>‘’ 单引号，在单引号中左右的特殊符号，如$,&amp;都没有特殊含义<br>“” 双引号，在双引号中左右的特殊符号都没有特殊含义，但是“$”,”<code>&quot;,&quot;\&quot;是例外。拥有“调用变量的值”，“引用命令”和“转义符”的特殊含义
 `</code> 反引号，反引号括起来的内容是系统命令，在Bash中会先执行它。和$()作用一样。<br>$() 用来引用系统命令</p>
 <h1 id="在Shell脚本中，-开头的行代表注释"><a href="#在Shell脚本中，-开头的行代表注释" class="headerlink" title="在Shell脚本中，#开头的行代表注释"></a>在Shell脚本中，#开头的行代表注释</h1><p>$ 用于调用变量的值，如需要调用变量name的值时，需要用$name的方式得到变量的值<br>\ 转义符，跟在\之后的特殊符号将失去特殊含义，变为普通字符。如\$将输出”$”符号</p>
